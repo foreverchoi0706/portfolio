@@ -1,9 +1,13 @@
 <template>
   <nav>
-    <router-link to="/">Home</router-link>
-    <router-link to="/about">About</router-link>
-    <router-link to="/">Home</router-link>
-    <router-link to="/">Setting</router-link>
+    <router-link to="/"><img src="@/assets/home.png" alt="home" /></router-link>
+    <router-link to="/"
+      ><img src="@/assets/document.png" alt="document"
+    /></router-link>
+    <router-link to="/"><img src="@/assets/home.png" alt="home" /></router-link>
+    <router-link to="/"
+      ><img src="@/assets/profile.png" alt="profile"
+    /></router-link>
   </nav>
 </template>
 
@@ -14,6 +18,10 @@ export default {
 </script>
 
 <style>
+img {
+  widows: 32px;
+  height: 32px;
+}
 nav {
   width: 100%;
   display: flex;

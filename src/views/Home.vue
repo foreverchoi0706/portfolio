@@ -17,7 +17,6 @@ export default {
   },
 
   mounted() {
-    document.addEventListener("touchstart", null , { passive: false });
     window.kakao && window.kakao.maps
       ? this.initMap()
       : this.addKakaoMapScript();
@@ -45,8 +44,7 @@ export default {
 
     handleClick(e) {
       console.log(e.target.name);
-      e.target.name === "+" ? this.$data.level++ : this.$data.level--;
-      console.log(this.$data.level);
+      e.target.name === "-" ? this.$data.level++ : this.$data.level--;
       this.initMap();
     },
   },
@@ -71,5 +69,13 @@ section {
 
   display: flex;
   flex-direction: column;
+  gap: 10px;
+}
+button {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  border: none;
+  background-color: khaki;
 }
 </style>
