@@ -1,11 +1,10 @@
 <template>
   <nav>
     <router-link to="/"><img src="@/assets/home.png" alt="home" /></router-link>
-    <router-link to="/"
+    <router-link to="/document"
       ><img src="@/assets/document.png" alt="document"
     /></router-link>
-    <router-link to="/"><img src="@/assets/home.png" alt="home" /></router-link>
-    <router-link to="/"
+    <router-link to="/profile"
       ><img src="@/assets/profile.png" alt="profile"
     /></router-link>
   </nav>
@@ -26,7 +25,6 @@ nav {
   width: 100%;
   display: flex;
   align-items: center;
-  height: 40px;
 }
 nav a {
   text-align: center;

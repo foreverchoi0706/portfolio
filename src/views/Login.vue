@@ -12,7 +12,7 @@ export default {
 };
 </script>
 
-<style>
+<style lang="scss" scoped>
 .login {
   background-color: #41b883;
   width: 100%;

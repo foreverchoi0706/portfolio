@@ -1,14 +1,14 @@
 <template>
   <main>
-    <article>
-      <router-view />
-    </article>
+    <router-view />
     <Nav />
   </main>
 </template>
 
 <script>
+//components
 import Nav from "@/components/Nav";
+
 export default {
   components: {
     Nav,
@@ -16,19 +16,12 @@ export default {
 };
 </script>
 
-<style>
-body {
-  margin: 0;
-}
+<style lang="scss" scoped>
 main {
   height: 100vh;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-}
-article {
-  width: 100%;
-  flex-grow: 1;
 }
 </style>

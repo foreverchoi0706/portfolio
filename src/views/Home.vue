@@ -1,81 +1,96 @@
 <template>
-  <section>
+  <Header />
+  <section class="home">
     <div id="map" />
-    <div class="remote_level">
-      <button name="+" @click="handleClick">+</button>
-      <button name="-" @click="handleClick">-</button>
+    <div class="home_search">
+      <input type="text" placeholder="키워드" />
     </div>
   </section>
 </template>
 
 <script>
-export default {
-  data() {
-    return {
-      level: 5,
-    };
-  },
+import { onMounted, reactive } from "vue";
+//components
+import Header from "@/components/Header";
 
-  mounted() {
-    window.kakao && window.kakao.maps
-      ? this.initMap()
-      : this.addKakaoMapScript();
+export default {
+  name: "Home",
+  components: {
+    Header,
   },
-  methods: {
-    addKakaoMapScript() {
+  setup() {
+    const state = reactive({
+      level: 5,
+    });
+
+    onMounted(() => {
+      window.kakao && window.kakao.maps ? initMap() : addKakaoMapScript();
+    });
+
+    const addKakaoMapScript = () => {
       const script = document.createElement("script");
       /* global kakao */
-      script.onload = () => kakao.maps.load(this.initMap);
+      script.onload = () => kakao.maps.load(initMap);
       script.src =
         "http://dapi.kakao.com/v2/maps/sdk.js?autoload=false&appkey=c18742c14562f73324a4c92c7d085dce";
       document.head.appendChild(script);
-    },
+    };
 
-    initMap() {
+    const initMap = () => {
       navigator.geolocation.getCurrentPosition((position) => {
         const { latitude, longitude } = position.coords;
         const container = document.getElementById("map");
         new kakao.maps.Map(container, {
           center: new kakao.maps.LatLng(latitude, longitude),
-          level: this.$data.level,
+          level: state.level,
         });
       });
-    },
+    };
 
-    handleClick(e) {
-      console.log(e.target.name);
-      e.target.name === "-" ? this.$data.level++ : this.$data.level--;
-      this.initMap();
-    },
+    const handleClick = (e) => {
+      e.target.name === "-" ? state.level++ : state.level--;
+      initMap();
+    };
+
+    return { handleClick };
   },
 };
 </script>
 
-<style>
-section {
+<style lang="scss" scoped>
+.home {
   position: relative;
   width: 100%;
   height: 100%;
+  #map {
+    width: inherit;
+    height: inherit;
+  }
+  .home_search {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    position: fixed;
+    top: 50px;
+    z-index: 999;
+    input {
+      width: 70%;
+      border: none;
+      border-radius: 5px;
+      padding: 5px;
+      animation: appear 0.5s forwards linear;
+    }
+  }
 }
-#map {
-  width: inherit;
-  height: inherit;
-}
-.remote_level {
-  position: absolute;
-  top: 45vh;
-  right: 10px;
-  z-index: 999;
 
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-}
-button {
-  width: 30px;
-  height: 30px;
-  border-radius: 50%;
-  border: none;
-  background-color: khaki;
+@keyframes appear {
+  from {
+    transform: translateY(-10px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
 }
 </style>
