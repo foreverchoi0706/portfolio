@@ -1,6 +1,7 @@
 <template>
   <Header />
-  <section>Profile</section>
+  <section class="profile">Profile</section>
+  <Nav/>
 </template>
 
 <script>
@@ -15,9 +16,8 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-section {
-  position: relative;
+.profile {
   width: 100%;
-  height: 100%;
+  height: calc(100vh - 100px);
 }
 </style>

@@ -6,11 +6,11 @@ import Profile from "@/views/Profile.vue";
 
 const routes: Array<RouteRecordRaw> = [
   {
-    path: "/login",
+    path: "/",
     component: Login,
   },
   {
-    path: "/",
+    path: "/home",
     component: Home,
   },
   {

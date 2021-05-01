@@ -6,17 +6,20 @@
       <input type="text" placeholder="키워드TESTEST" />
     </div>
   </section>
+  <Nav />
 </template>
 
 <script>
 import { onMounted, reactive } from "vue";
 //components
-import Header from "@/components/Header";
+import Header from "@/components/Header.vue";
+import Nav from "@/components/Nav.vue";
 
 export default {
   name: "Home",
   components: {
     Header,
+    Nav,
   },
   setup() {
     const state = reactive({
@@ -57,11 +60,11 @@ export default {
 };
 </script>
 
-<style lang="scss" scoped>
+<style lang="scss">
 .home {
   position: relative;
   width: 100%;
-  height: 100%;
+  height: calc(100vh - 100px);
   #map {
     width: inherit;
     height: inherit;
@@ -71,7 +74,7 @@ export default {
     display: flex;
     justify-content: center;
     position: fixed;
-    top: 50px;
+    top: 100px;
     z-index: 999;
     input {
       width: 70%;

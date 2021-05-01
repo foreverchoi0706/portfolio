@@ -1,7 +1,7 @@
 <template>
   <header class="header">
-    <h1 class="app_title">{{ route.name }}</h1>
-    <div class="app_utils">
+    <h1 class="header_title">{{ route.name }}</h1>
+    <div class="header_utils">
       <img src="@/assets/search.png" />
       <img src="@/assets/notification.png" />
     </div>
@@ -21,18 +21,19 @@ export default {
 };
 </script>
 
-<style lang="scss" scoped>
-header {
+<style lang="scss">
+.header {
+  height: 50px;
   width: 100%;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  .app_title {
+  .header_title {
     margin: 0;
     margin-left: 5px;
     font-size: 1.5rem;
   }
-  .app_utils {
+  .header_utils {
     display: flex;
     justify-content: space-between;
     align-items: center;
