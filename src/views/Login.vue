@@ -1,6 +1,6 @@
 <template>
   <form class="login">
-    <router-link to="/Home">로그인</router-link>
+    <router-link to="/home">로그인</router-link>
   </form>
 </template>
 

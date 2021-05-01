@@ -1,6 +1,5 @@
 <template>
   <header class="header">
-    <h1 class="header_title">{{ route.name }}</h1>
     <div class="header_utils">
       <img src="@/assets/search.png" />
       <img src="@/assets/notification.png" />
@@ -15,7 +14,6 @@ export default {
   name: "Header",
   setup() {
     const route = useRoute();
-
     return { route };
   },
 };
@@ -23,17 +21,14 @@ export default {
 
 <style lang="scss">
 .header {
-  height: 50px;
+  height: 5vh;
   width: 100%;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  .header_title {
-    margin: 0;
-    margin-left: 5px;
-    font-size: 1.5rem;
-  }
+
   .header_utils {
+    width: 100%;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -42,6 +37,9 @@ export default {
       height: 24px;
       margin: 0 5px;
       cursor: pointer;
+    }
+    .notification {
+      position: relative;
     }
   }
 }

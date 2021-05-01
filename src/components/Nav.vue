@@ -1,6 +1,8 @@
 <template>
   <nav class="nav">
-    <router-link to="/"><img src="@/assets/home.png" alt="home" /></router-link>
+    <router-link to="/home"
+      ><img src="@/assets/home.png" alt="home"
+    /></router-link>
     <router-link to="/document"
       ><img src="@/assets/document.png" alt="document"
     /></router-link>

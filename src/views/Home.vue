@@ -2,9 +2,6 @@
   <Header />
   <section class="home">
     <div id="map" />
-    <div class="home_search">
-      <input type="text" placeholder="키워드TESTEST" />
-    </div>
   </section>
   <Nav />
 </template>
@@ -64,25 +61,10 @@ export default {
 .home {
   position: relative;
   width: 100%;
-  height: calc(100vh - 100px);
+  height: calc(100vh - 10vh);
   #map {
     width: inherit;
     height: inherit;
-  }
-  .home_search {
-    width: 100%;
-    display: flex;
-    justify-content: center;
-    position: fixed;
-    top: 100px;
-    z-index: 999;
-    input {
-      width: 70%;
-      border: none;
-      border-radius: 5px;
-      padding: 5px;
-      animation: appear 0.5s forwards linear;
-    }
   }
 }
 

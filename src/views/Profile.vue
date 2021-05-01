@@ -1,16 +1,18 @@
 <template>
   <Header />
   <section class="profile">Profile</section>
-  <Nav/>
+  <Nav />
 </template>
 
 <script>
-import Header from "@/components/Header";
+import Header from "@/components/Header.vue";
+import Nav from "@/components/Nav.vue";
 
 export default {
   name: "Profile",
   components: {
     Header,
+    Nav,
   },
 };
 </script>
@@ -18,6 +20,6 @@ export default {
 <style lang="scss" scoped>
 .profile {
   width: 100%;
-  height: calc(100vh - 100px);
+    height: calc(100vh - 10vh);
 }
 </style>
