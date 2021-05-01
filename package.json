@@ -7,7 +7,7 @@
     "build": "vue-cli-service build",
     "lint": "vue-cli-service lint",
     "predeploy": "npm run build",
-    "deploy": "gh-pages build -d dist",
+    "deploy": "gh-pages build -d docs",
     "produce": "serve -s dist -l 8080"
   },
   "dependencies": {
@@ -62,5 +62,5 @@
     "last 2 versions",
     "not dead"
   ],
-  "homepage": "./"
+  "homepage": "https://foreverchoi0706.github.io/katos/"
 }
