@@ -3,7 +3,7 @@
   <section class="home">
     <div id="map" />
     <div class="home_search">
-      <input type="text" placeholder="키워드" />
+      <input type="text" placeholder="키워드TESTEST" />
     </div>
   </section>
 </template>
