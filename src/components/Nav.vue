@@ -3,7 +3,7 @@
     <router-link to="/home"
       ><img src="@/assets/home.png" alt="home"
     /></router-link>
-    <router-link to="/document"
+    <router-link to="/life"
       ><img src="@/assets/document.png" alt="document"
     /></router-link>
     <router-link to="/profile"

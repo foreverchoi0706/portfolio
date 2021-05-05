@@ -7,7 +7,7 @@ import {
 } from "vue-router";
 import Login from "@/views/Login.vue";
 import Home from "@/views/Home.vue";
-import Document from "@/views/Document.vue";
+import Life from "@/views/Life.vue";
 import Profile from "@/views/Profile.vue";
 import NotFound from "@/views/NotFound.vue";
 
@@ -33,8 +33,8 @@ const routes: Array<RouteRecordRaw> = [
     beforeEnter: handleBeforeEnter,
   },
   {
-    path: "/document",
-    component: Document,
+    path: "/life",
+    component: Life,
     beforeEnter: handleBeforeEnter,
   },
   {
