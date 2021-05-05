@@ -8,6 +8,7 @@ import {
 import Login from "@/views/Login.vue";
 import Home from "@/views/Home.vue";
 import Life from "@/views/Life.vue";
+import LifeDetail from "@/views/LifeDetail.vue";
 import Profile from "@/views/Profile.vue";
 import NotFound from "@/views/NotFound.vue";
 
@@ -35,6 +36,11 @@ const routes: Array<RouteRecordRaw> = [
   {
     path: "/life",
     component: Life,
+    beforeEnter: handleBeforeEnter,
+  },
+  {
+    path :"/life/:id",
+    component: LifeDetail,
     beforeEnter: handleBeforeEnter,
   },
   {

@@ -1,6 +1,6 @@
 <template>
-  <section class="post">
-    <h3 class="post_title">title</h3>
+  <section class="post" @click="goDetail">
+    <h3 class="post_title">{{ id }}</h3>
     <div class="post_summary">
       test test test test test test test test test test test test test test test
       test test test test test test test test test test test test test test test
@@ -10,23 +10,37 @@
       <li>
         <img class="post_like" src="@/assets/like.png" alt="like" />
       </li>
+      <li>10</li>
       <li>
         <img class="post_comments" src="@/assets/comments.png" alt="comments" />
       </li>
-    </ul>
 
-    <router-view>TEST</router-view>
+      <li>10</li>
+    </ul>
   </section>
 </template>
 
 <script>
-export default {};
+import router from "@/router";
+
+export default {
+  props: {
+    id: Number,
+  },
+  setup(props) {
+    const goDetail = () => {
+      router.push(`/life/${props.id}`);
+    };
+    return { goDetail };
+  },
+};
 </script>
 
 <style lang="scss">
 .post {
   padding: 10px;
   .post_title {
+    margin: 0;
   }
   .post_summary {
     margin: 18.72px 0;
@@ -37,8 +51,8 @@ export default {};
     list-style: none;
     display: flex;
     align-items: center;
+    gap: 5px;
     li {
-      margin-right: 10px;
       .post_like {
         width: 24px;
         height: 24px;

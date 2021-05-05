@@ -1,19 +1,7 @@
 <template>
   <Header />
   <article class="life">
-    <Post />
-    <Post />
-    <Post />
-    <Post />
-    <Post />
-    <Post />
-    <Post />
-    <Post />
-    <Post />
-    <Post />
-    <Post />
-    <Post />
-    <Post />
+    <Post :key="index" :id="index" v-for="(data, index) in arr" />
     <router-link to="/" class="posting">+</router-link>
   </article>
   <Nav />
@@ -27,6 +15,8 @@ import api from "@/api";
 import Header from "@/components/Header";
 import Nav from "@/components/Nav";
 import Post from "@/components/lfie/Post";
+
+const arr = new Array(20).fill("test");
 
 export default {
   name: "Life",
@@ -44,7 +34,7 @@ export default {
       console.log(state.basicInfo);
     });
 
-    return { state };
+    return { state, arr };
   },
 };
 </script>
@@ -56,7 +46,6 @@ export default {
   overflow-y: auto;
   .posting {
     text-decoration: none;
-    position: fixed;
     background-color: red;
     border-radius: 50%;
     width: 50px;
@@ -64,7 +53,8 @@ export default {
     display: flex;
     justify-content: center;
     align-items: center;
-    bottom: 10vw;
+    position: fixed;
+    bottom: 5vh;
     right: 10px;
     color: white;
     font-size: 2em;

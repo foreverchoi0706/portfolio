@@ -1,13 +1,6 @@
 <template>
   <section class="help">
-    <ul>
-      <li>help</li>
-      <li>help</li>
-      <li>help</li>
-      <li>help</li>
-      <li>help</li>
-      <li>help</li>
-    </ul>
+    ㅅTEAS
   </section>
 </template>
 
