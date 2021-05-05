@@ -12,7 +12,6 @@ export default {
 
 <style lang="scss" scoped>
 .login {
-  background-color: #41b883;
   width: 100%;
   height: 100vh;
   display: flex;

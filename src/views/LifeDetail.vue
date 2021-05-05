@@ -1,7 +1,5 @@
 <template>
-  <Header />
   <article class="lifeDetail"></article>
-  <Nav />
 </template>
 
 <script>
@@ -9,14 +7,9 @@ import { onMounted, reactive } from "vue";
 //api
 import api from "@/api";
 //components
-import Header from "@/components/Header";
-import Nav from "@/components/Nav";
 
 export default {
-  components: {
-    Header,
-    Nav,
-  },
+  components: {},
 };
 </script>
 

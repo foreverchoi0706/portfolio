@@ -1,24 +1,18 @@
 <template>
-  <Header />
   <article class="home">
     <Loading v-if="!state.isLoaded" />
     <div id="map" />
   </article>
-  <Nav />
 </template>
 
 <script>
 import { onMounted, reactive } from "vue";
 //components
-import Header from "@/components/Header";
-import Nav from "@/components/Nav";
 import Loading from "@/components/Loading";
 
 export default {
   name: "Home",
   components: {
-    Header,
-    Nav,
     Loading,
   },
   setup() {
