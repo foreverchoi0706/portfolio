@@ -1,26 +1,30 @@
 <template>
   <Header />
-  <section class="home">
+  <article class="home">
+    <Loading v-if="!state.isLoaded" />
     <div id="map" />
-  </section>
+  </article>
   <Nav />
 </template>
 
 <script>
 import { onMounted, reactive } from "vue";
 //components
-import Header from "@/components/Header.vue";
-import Nav from "@/components/Nav.vue";
+import Header from "@/components/Header";
+import Nav from "@/components/Nav";
+import Loading from "@/components/Loading";
 
 export default {
   name: "Home",
   components: {
     Header,
     Nav,
+    Loading,
   },
   setup() {
     const state = reactive({
       level: 5,
+      isLoaded: false,
     });
 
     onMounted(() => {
@@ -44,6 +48,8 @@ export default {
           center: new kakao.maps.LatLng(latitude, longitude),
           level: state.level,
         });
+        state.isLoaded = true;
+        console.log(state.isLoaded);
       });
     };
 
@@ -52,7 +58,7 @@ export default {
       initMap();
     };
 
-    return { handleClick };
+    return { state, handleClick };
   },
 };
 </script>

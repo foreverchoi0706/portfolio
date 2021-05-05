@@ -1,6 +1,6 @@
 <template>
   <Header />
-  <section class="document">Document</section>
+  <article class="document">Document</article>
   <Nav />
 </template>
 
