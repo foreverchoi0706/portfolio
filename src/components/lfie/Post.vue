@@ -9,13 +9,13 @@
     <ul class="post_info">
       <li>
         <img class="post_like" src="@/assets/like.png" alt="like" />
-      </li>
-      <li>10</li>
-      <li>
-        <img class="post_comments" src="@/assets/comments.png" alt="comments" />
+        <strong>10</strong>
       </li>
 
-      <li>10</li>
+      <li>
+        <img class="post_comments" src="@/assets/comments.png" alt="comments" />
+        <strong>10</strong>
+      </li>
     </ul>
   </section>
 </template>
@@ -51,8 +51,11 @@ export default {
     list-style: none;
     display: flex;
     align-items: center;
-    gap: 5px;
     li {
+      display: flex;
+      align-items: center;
+      margin-right: 5px;
+      font-size: 0.7rem;
       .post_like {
         width: 24px;
         height: 24px;

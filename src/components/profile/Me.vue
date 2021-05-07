@@ -8,12 +8,16 @@
       <h2>TEST NAME</h2>
       <h5>TEST NAME</h5>
     </div>
+    <button @click="$emit('goSetting', goSetting)">프로필 수정</button>
   </section>
 </template>
 
 <script>
 export default {
   name: "Me",
+  props: {
+    goSetting: Function,
+  },
 };
 </script>
 
@@ -36,8 +40,7 @@ export default {
       height: inherit;
     }
   }
-  .me_summary{
-
+  .me_summary {
   }
 }
 </style>

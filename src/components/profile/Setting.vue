@@ -1,21 +1,36 @@
 <template>
   <section class="setting">
-    <ul>
-      <li>공지사항</li>
-      <li>자주하는질문</li>
-      <li>문의하기</li>
-    </ul>
+    <button @click="$emit('goSetting', goSetting)">X</button>
   </section>
 </template>
 
 <script>
 export default {
-  name: "Setting",
+  props: {
+    goSetting: Function,
+  },
+  setup() {
+    return {};
+  },
 };
 </script>
 
-<style lang="scss">
+<style>
 .setting {
-  padding: 10px;
+  background-color: white;
+  width: 100%;
+  height: 100vh;
+  position: fixed;
+  z-index: 999;
+  animation: appear 0.3s linear forwards;
+}
+
+@keyframes appear {
+  from {
+    top: 100vh;
+  }
+  to {
+    top: 0;
+  }
 }
 </style>

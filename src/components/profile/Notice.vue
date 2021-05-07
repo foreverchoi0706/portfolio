@@ -1,7 +1,7 @@
 <template>
-  <section class="help">
+  <section class="notice">
     <details>
-      <summary>자주하는질문</summary>
+      <summary>공지사항</summary>
       <ul>
         <li>TEST</li>
         <li>TEST</li>
@@ -17,6 +17,6 @@
 
 <script>
 export default {
-  name: "Help",
+  name: "Setting",
 };
 </script>
