@@ -1,18 +1,15 @@
 import axios, { AxiosInstance } from "axios";
 
-const baseURL = "http://localhost:3000/";
+const baseURL = process.env.VUE_APP_API_URL;
 
 const instance: AxiosInstance = axios.create({
   baseURL,
 });
 
 const api = {
-  getBasicInfo: () =>
+  getBasicInfo: (params: any = { sidoCode: 27, sggCode: 27140 }) =>
     instance.get("childschoolinfo/basicInfo", {
-      params: {
-        sidoCode: 27,
-        sggCode: 27140,
-      },
+      ...params,
     }),
 };
 
