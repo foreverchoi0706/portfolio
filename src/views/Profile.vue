@@ -43,6 +43,7 @@ export default {
 .profile {
   width: 100%;
   height: calc(100vh - 10vh);
+  overflow-y: auto;
   section {
     padding: 10px;
     text-decoration: none;

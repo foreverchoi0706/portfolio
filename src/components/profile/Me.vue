@@ -1,14 +1,18 @@
 <template>
   <section class="me">
-    <label for="me_file">
-      <input id="me_file" class="me_file" type="file" />
-      <img class="me_img" type="image" src="@/assets/profile.png" alt="me" />
-    </label>
     <div class="me_summary">
-      <h2>TEST NAME</h2>
-      <h5>TEST NAME</h5>
+      <label for="me_file">
+        <input id="me_file" class="me_file" type="file" />
+        <img class="me_img" type="image" src="@/assets/profile.png" alt="me" />
+      </label>
+      <div>
+        <h2>TEST NAME</h2>
+        <h5>TEST NAME</h5>
+      </div>
     </div>
-    <button @click="$emit('goSetting', goSetting)">프로필 수정</button>
+    <button class="me_setting_btn" @click="$emit('goSetting')">
+      프로필 수정
+    </button>
   </section>
 </template>
 
@@ -24,7 +28,7 @@ export default {
 <style lang="scss">
 .me {
   display: flex;
-
+  flex-direction: column;
   label {
     display: inline-block;
     width: 7rem;
@@ -41,6 +45,14 @@ export default {
     }
   }
   .me_summary {
+    display: flex;
+  }
+  .me_setting_btn {
+    all: initial;
+    background-color: rgb(255, 191, 102);
+    text-align: center;
+    border-radius: 5px;
+    padding: 5px;
   }
 }
 </style>
