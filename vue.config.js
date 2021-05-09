@@ -1,4 +1,4 @@
 module.exports = {
-  publicPath: "/uriai",
+  publicPath: "/uriai_front",
   outputDir: "docs",
 };
