@@ -1,4 +1,4 @@
 module.exports = {
-  publicPath: "/katos",
+  publicPath: "/uriai",
   outputDir: "docs",
 };
