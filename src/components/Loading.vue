@@ -1,18 +1,27 @@
 <template>
-  <div class="loading">로딩중</div>
+  <div class="loading">
+    <img src="@/assets/loading.gif" />
+  </div>
 </template>
 
 <script>
 export default {};
 </script>
 
-<style lang="scss">
+<style lang="scss" scoped>
 .loading {
-  position: fixed;
+  position: absolute;
+  z-index: 999;
+  width: 100%;
   height: inherit;
+
   display: flex;
   justify-content: center;
   align-items: center;
-  background: lightgray;
+  background: none;
+  img {
+    width: 50px;
+    height: 50px;
+  }
 }
 </style>

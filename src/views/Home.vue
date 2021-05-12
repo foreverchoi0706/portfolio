@@ -1,12 +1,16 @@
 <template>
   <article class="home">
+    <!-- loading -->
     <Loading v-if="!state.isLoaded" />
+    <!-- loading -->
     <div id="map" />
     <div class="home_btns">
       <button @click="goCurrentPosition">NOW</button>
       <button @click="zoomIn">+</button>
       <button @click="zoomOut">-</button>
     </div>
+    <img src="@/assets/mail_img.png"/>
+<img src="@/assets/info_tag.png"/>
   </article>
 </template>
 
@@ -65,6 +69,7 @@ export default {
     };
 
     const initMap = () => {
+      state.isLoaded = false;
       navigator.geolocation.getCurrentPosition((position) => {
         const { latitude, longitude } = position.coords;
         const container = document.getElementById("map");
@@ -73,6 +78,7 @@ export default {
           level: state.level,
         });
         addKakaoMaker(latitude, longitude);
+        state.isLoaded = true;
       });
     };
 
