@@ -1,10 +1,14 @@
 import { createStore } from "vuex";
+//interface
+import CustomStoreOptions from "@/interface/CustomStoreOptions";
 
-export default createStore({
+const initialState: CustomStoreOptions = {
   state: {
-    path: "",
+    name: "",
   },
   mutations: {},
   actions: {},
   modules: {},
-});
+};
+
+export default createStore(initialState);

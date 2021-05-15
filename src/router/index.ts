@@ -20,7 +20,7 @@ const handleBeforeEnter = (
 ) => {
   console.log(to);
   console.log(from);
-  store.state.path = to.path;
+  store.state.name = to.name;
   next();
 };
 
@@ -32,11 +32,13 @@ const routes: Array<RouteRecordRaw> = [
   },
   {
     path: "/home",
+    name: "홈",
     component: Home,
     beforeEnter: handleBeforeEnter,
   },
   {
     path: "/life",
+    name: "동네생활",
     component: Life,
     beforeEnter: handleBeforeEnter,
   },
@@ -47,6 +49,7 @@ const routes: Array<RouteRecordRaw> = [
   },
   {
     path: "/profile",
+    name: "프로필",
     component: Profile,
     beforeEnter: handleBeforeEnter,
   },

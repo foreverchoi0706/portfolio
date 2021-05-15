@@ -3,7 +3,12 @@
     <div class="me_summary">
       <label for="me_file">
         <input id="me_file" class="me_file" type="file" />
-        <img class="me_img" type="image" src="@/assets/profile.png" alt="me" />
+        <img
+          class="me_img"
+          type="image"
+          src="@/assets/profile_file.png"
+          alt="me"
+        />
       </label>
       <div>
         <h2>TEST NAME</h2>
@@ -46,6 +51,7 @@ export default {
   }
   .me_summary {
     display: flex;
+    margin-bottom: 10px;
   }
   .me_setting_btn {
     all: initial;

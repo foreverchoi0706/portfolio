@@ -4,7 +4,6 @@
     <Notice />
     <Help />
     <Ask />
-
     <Setting v-if="state.isSetting" @goSetting="goSetting" />
   </article>
 </template>

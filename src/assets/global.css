@@ -5,6 +5,7 @@ body {
   min-width: 320px;
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
     Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+  color: gray;
 }
 body article {
   background-color: #e2e2e2;
