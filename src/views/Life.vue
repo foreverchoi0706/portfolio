@@ -24,8 +24,7 @@ export default {
       basicInfo: null,
     });
     onMounted(async () => {
-      state.basicInfo = await api.getBasicInfo();
-      console.log(state.basicInfo);
+      console.log("test");
     });
 
     return { state, arr };

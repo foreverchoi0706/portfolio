@@ -1,4 +1,6 @@
-export default interface CustomStoreOptions {
+import { StoreOptions } from "vuex";
+
+export default interface UriaiStoreOptions extends StoreOptions<any> {
   state: {
     name: string | symbol | null | undefined;
   };

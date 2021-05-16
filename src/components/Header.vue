@@ -1,5 +1,5 @@
 <template>
-  <header class="header">
+  <header v-if="$store.state.name" class="header">
     <div class="header_wrap">
       <strong>{{ $store.state.name }}</strong>
       <img src="@/assets/notification.png" @click="checkNotification" />

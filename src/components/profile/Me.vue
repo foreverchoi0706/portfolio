@@ -12,7 +12,7 @@
       </label>
       <div>
         <h2>TEST NAME</h2>
-        <h5>TEST NAME</h5>
+        <h5>TEST ADDR</h5>
       </div>
     </div>
     <button class="me_setting_btn" @click="$emit('goSetting')">

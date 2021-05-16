@@ -1,5 +1,7 @@
 <template>
-  <article class="lifeDetail"></article>
+  <article class="lifeDetail">
+  
+  </article>
 </template>
 
 <script>
@@ -13,7 +15,7 @@ export default {
 };
 </script>
 
-<style lang="scss">
+<style lang="scss" scoped>
 .lifeDetail {
   width: 100%;
   height: calc(100vh - 10vh);

@@ -5,7 +5,7 @@ import {
   _RouteLocationBase,
   NavigationGuardNext,
 } from "vue-router";
-import Login from "@/views/Login.vue";
+import SignIn from "@/views/SignIn.vue";
 import Home from "@/views/Home.vue";
 import Life from "@/views/Life.vue";
 import LifeDetail from "@/views/LifeDetail.vue";
@@ -15,11 +15,9 @@ import store from "@/store";
 
 const handleBeforeEnter = (
   to: _RouteLocationBase,
-  from: _RouteLocationBase,
+  _: _RouteLocationBase,
   next: NavigationGuardNext
 ) => {
-  console.log(to);
-  console.log(from);
   store.state.name = to.name;
   next();
 };
@@ -27,7 +25,7 @@ const handleBeforeEnter = (
 const routes: Array<RouteRecordRaw> = [
   {
     path: "/",
-    component: Login,
+    component: SignIn,
     beforeEnter: handleBeforeEnter,
   },
   {

@@ -3,8 +3,6 @@
     <h3 class="post_title">{{ id }}</h3>
     <div class="post_summary">
       test test test test test test test test test test test test test test test
-      test test test test test test test test test test test test test test test
-      test test test test test test test test test
     </div>
     <ul class="post_info">
       <li>
@@ -28,9 +26,8 @@ export default {
     id: Number,
   },
   setup(props) {
-    const goDetail = () => {
-      router.push(`/life/${props.id}`);
-    };
+    const goDetail = () => router.push(`/life/${props.id}`);
+
     return { goDetail };
   },
 };

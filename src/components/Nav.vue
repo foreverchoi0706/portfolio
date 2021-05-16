@@ -1,5 +1,5 @@
 <template>
-  <nav class="nav">
+  <nav v-if="$store.state.name" class="nav">
     <router-link to="/home"
       ><img src="@/assets/home.png" alt="home"
     /></router-link>

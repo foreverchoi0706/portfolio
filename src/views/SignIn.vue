@@ -1,17 +1,17 @@
 <template>
-  <form class="login">
+  <form class="signIn">
     <router-link to="/home">로그인</router-link>
   </form>
 </template>
 
 <script>
 export default {
-  name: "login",
+  name: "signIn",
 };
 </script>
 
 <style lang="scss" scoped>
-.login {
+.signIn {
   width: 100%;
   height: 100vh;
   display: flex;

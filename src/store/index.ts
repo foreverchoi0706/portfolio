@@ -1,8 +1,8 @@
 import { createStore } from "vuex";
 //interface
-import CustomStoreOptions from "@/interface/CustomStoreOptions";
+import UriaiStoreOptions from "@/interface/UriaiStoreOptions";
 
-const initialState: CustomStoreOptions = {
+const initialState: UriaiStoreOptions = {
   state: {
     name: "",
   },

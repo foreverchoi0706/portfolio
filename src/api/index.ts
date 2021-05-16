@@ -1,4 +1,6 @@
-import axios, { AxiosInstance } from "axios";
+import axios, { AxiosInstance, AxiosResponse } from "axios";
+//interface
+import { BasicInfoParam, BasicInfoResult } from "@/interface/Childschoolinfo";
 
 const baseURL = process.env.VUE_APP_API_URL;
 
@@ -7,9 +9,13 @@ const instance: AxiosInstance = axios.create({
 });
 
 const api = {
-  getBasicInfo: (params: any = { sidoCode: 27, sggCode: 27140 }) =>
-    instance.get("childschoolinfo/basicInfo", {
-      ...params,
+  getBasicInfo: async (
+    params: BasicInfoParam
+  ): Promise<AxiosResponse<BasicInfoResult>> =>
+    await instance.get("childschoolinfo/basicInfo", {
+      params: {
+        ...params,
+      },
     }),
 };
 
