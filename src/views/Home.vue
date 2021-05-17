@@ -44,11 +44,7 @@ export default {
       marker: null,
     });
 
-    onMounted(async () => {
-      state.basicInfo = await api.getBasicInfo({
-        sidoCode: 41,
-        sggCode: 41173,
-      });
+    onMounted(() => {
       window.kakao && window.kakao.maps ? initMap() : addKakaoMapScript();
     });
 
@@ -62,7 +58,7 @@ export default {
 
     const initMap = () => {
       state.isLoaded = false;
-      navigator.geolocation.getCurrentPosition((position) => {
+      navigator.geolocation.getCurrentPosition(async (position) => {
         const { latitude, longitude } = position.coords;
         const container = document.getElementById("map");
         state.map = new kakao.maps.Map(container, {
@@ -71,10 +67,15 @@ export default {
         });
         state.geocoder = new kakao.maps.services.Geocoder();
         setMarker(HOME_IMAGE, latitude, longitude);
-        state.isLoaded = true;
+        // 기본정보 불러오기
+        state.basicInfo = await api.getBasicInfo({
+          sidoCode: 41,
+          sggCode: 41173,
+        });
         state.basicInfo.data.kinderInfo.forEach((info) => {
           searchAddr(info.addr);
         });
+        state.isLoaded = true;
       });
     };
 

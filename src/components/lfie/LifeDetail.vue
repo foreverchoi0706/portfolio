@@ -1,13 +1,13 @@
 <template>
-  <section class="setting">
-    <button @click="$emit('goSetting', goSetting)">X</button>
+  <section class="lifeDetail">
+    <button @click="$emit('goDetail', goDetail)">X</button>
   </section>
 </template>
 
 <script>
 export default {
   props: {
-    goSetting: Function,
+    goDetail: Function,
   },
   setup() {
     return {};
@@ -16,7 +16,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.setting {
+.lifeDetail {
   background-color: white;
   width: 100%;
   height: 100vh;
