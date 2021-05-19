@@ -23,7 +23,6 @@ export default {
   setup() {
     const state = reactive({
       isClicked: false,
-      path: "",
     });
 
     const checkNotification = () => (state.isClicked = !state.isClicked);

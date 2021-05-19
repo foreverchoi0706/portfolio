@@ -2,8 +2,26 @@
   <section class="me">
     <div class="me_summary">
       <label for="me_file">
-        <input id="me_file" class="me_file" type="file" />
+        <form class="me_form" enctype="multipart/form-data">
+          <input
+            name="file"
+            id="me_file"
+            class="me_file"
+            type="file"
+            accept=".jpg,.jpeg,.png"
+            @change="handleInput"
+          />
+          <input name="id" type="hidden" :value="$store.state.user.id" />
+        </form>
         <img
+          v-if="$store.state.user.profilePath"
+          class="me_img"
+          type="image"
+          :src="`http://localhost:3000/uploads/${$store.state.user.profilePath}`"
+          alt="me"
+        />
+        <img
+          v-else
           class="me_img"
           type="image"
           src="@/assets/profile_file.png"
@@ -11,8 +29,8 @@
         />
       </label>
       <div>
-        <h2>TEST NAME</h2>
-        <h5>TEST ADDR</h5>
+        <h2>{{ $store.state.user.name }}/{{ $store.state.user.id }}</h2>
+        <h5>{{ $store.state.user.addr }}</h5>
       </div>
     </div>
     <button class="me_setting_btn" @click="$emit('goSetting')">
@@ -22,15 +40,48 @@
 </template>
 
 <script>
+import { reactive } from "@vue/reactivity";
+import { onMounted } from "vue";
+import store from "@/store";
+//api
+import api from "@/api";
+
 export default {
   name: "Me",
   props: {
     goSetting: Function,
   },
+  setup() {
+    const state = reactive({
+      isInputed: false,
+      file: "",
+    });
+
+    onMounted(async () => {
+      const { data } = await api.getProfile(1);
+
+      store.state.user = data;
+      console.log(store.state.user);
+    });
+
+    const handleInput = async (e) => {
+      const formData = new FormData(e.target.parentNode);
+      const result = await api.patchProfile(formData);
+      if (result.data.success) {
+        const { data } = await api.getProfile(1);
+        store.state.user = data;
+      }
+    };
+
+    return {
+      state,
+      handleInput,
+    };
+  },
 };
 </script>
 
-<style lang="scss">
+<style lang="scss" scoped>
 .me {
   display: flex;
   flex-direction: column;
@@ -39,14 +90,18 @@ export default {
     width: 7rem;
     height: 7rem;
     margin-right: 10px;
-    .me_file {
-      width: 0;
-      height: 0;
+    .me_form {
+      display: none;
+      .me_file {
+        width: 0;
+        height: 0;
+      }
     }
     .me_img {
       pointer-events: none;
       width: inherit;
       height: inherit;
+      border-radius: 5px;
     }
   }
   .me_summary {

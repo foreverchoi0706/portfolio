@@ -5,6 +5,14 @@ import UriaiStoreOptions from "@/interface/UriaiStoreOptions";
 const initialState: UriaiStoreOptions = {
   state: {
     name: "",
+    user: {
+      id: 0,
+      name: "",
+      addr: "",
+      createDate: "",
+      updateDate: "",
+      profilePath: "",
+    },
   },
   mutations: {},
   actions: {},

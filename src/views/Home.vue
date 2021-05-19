@@ -45,7 +45,7 @@ export default {
     });
 
     onMounted(() => {
-      window.kakao && window.kakao.maps ? initMap() : addKakaoMapScript();
+      window.kakao && window.kakao.maps ? initMap(10) : addKakaoMapScript();
     });
 
     const addKakaoMapScript = () => {
@@ -56,14 +56,14 @@ export default {
       document.head.appendChild(script);
     };
 
-    const initMap = () => {
+    const initMap = (level) => {
       state.isLoaded = false;
       navigator.geolocation.getCurrentPosition(async (position) => {
         const { latitude, longitude } = position.coords;
         const container = document.getElementById("map");
         state.map = new kakao.maps.Map(container, {
           center: new kakao.maps.LatLng(latitude, longitude),
-          level: state.level,
+          level,
         });
         state.geocoder = new kakao.maps.services.Geocoder();
         setMarker(HOME_IMAGE, latitude, longitude);
@@ -98,30 +98,31 @@ export default {
       marker.setMap(state.map);
     };
 
+    // 주소검색
     const searchAddr = (addr) =>
       state.geocoder.addressSearch(addr, (result, status) => {
-        // 정상적으로 검색이 완료됐으면
+        // 정상적으로 주소검색이 완료됐으면
         if (status === kakao.maps.services.Status.OK) {
+          // 마커 찍기
           setMarker(MARKER_IMAGE, result[0].y, result[0].x);
         }
       });
-    const goCurrentPosition = () => {
-      state.level = 3;
-      initMap();
-    };
+
+    // 현위치로
+    const goCurrentPosition = () => initMap(3);
+
     // 줌인
     const zoomIn = () => state.map.setLevel((state.level -= 1));
+
     // 줌아웃
     const zoomOut = () => state.map.setLevel((state.level += 1));
 
-    const handleClick = () => (state.isLoaded = !state.isLoaded);
-
-    return { state, goCurrentPosition, zoomIn, zoomOut, handleClick };
+    return { state, goCurrentPosition, zoomIn, zoomOut };
   },
 };
 </script>
 
-<style lang="scss">
+<style lang="scss" scoped>
 .home {
   position: relative;
   width: 100%;

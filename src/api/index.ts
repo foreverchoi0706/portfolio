@@ -17,6 +17,19 @@ const api = {
         ...params,
       },
     }),
+
+  getProfile: async (id: number) =>
+    await instance.get(`user/`, {
+      params: {
+        id,
+      },
+    }),
+
+  patchProfile: async (formData: FormData) =>
+    await instance.patch("user/profile", formData,{
+
+     
+    }),
 };
 
 export default api;
