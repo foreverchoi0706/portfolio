@@ -17,7 +17,7 @@
           v-if="$store.state.user.profilePath"
           class="me_img"
           type="image"
-          :src="`http://localhost:3000/uploads/${$store.state.user.profilePath}`"
+          :src="`${VUE_APP_API_URL}/uploads/${$store.state.user.profilePath}`"
           alt="me"
         />
         <img
@@ -45,6 +45,8 @@ import { onMounted } from "vue";
 import store from "@/store";
 //api
 import api from "@/api";
+
+const { VUE_APP_API_URL } = process.env;
 
 export default {
   name: "Me",
@@ -74,6 +76,7 @@ export default {
     };
 
     return {
+      VUE_APP_API_URL,
       state,
       handleInput,
     };
