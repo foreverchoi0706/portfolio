@@ -5,11 +5,13 @@ import {
   _RouteLocationBase,
   NavigationGuardNext,
 } from "vue-router";
+import store from "@/store";
+
 import SignIn from "@/views/SignIn.vue";
 import Home from "@/views/Home.vue";
 import Lifes from "@/views/Lifes.vue";
 import Profile from "@/views/Profile.vue";
-import store from "@/store";
+import Map from "@/views/Map.vue";
 
 const handleBeforeEnter = (
   to: _RouteLocationBase,
@@ -42,6 +44,11 @@ const routes: Array<RouteRecordRaw> = [
     path: "/profile",
     name: "프로필",
     component: Profile,
+    beforeEnter: handleBeforeEnter,
+  },
+  {
+    path: "/map",
+    component: Map,
     beforeEnter: handleBeforeEnter,
   },
 ];
