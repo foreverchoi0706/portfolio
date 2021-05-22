@@ -9,13 +9,13 @@
 </template>
 
 <script>
+import { reactive } from "@vue/reactivity";
 //components
 import Me from "@/components/profile/Me";
 import Notice from "@/components/profile/Notice";
 import Help from "@/components/profile/Help";
 import Ask from "@/components/profile/Ask";
 import Setting from "@/components/profile/Setting";
-import { reactive } from "@vue/reactivity";
 
 export default {
   name: "Profile",
@@ -43,15 +43,9 @@ export default {
   width: 100%;
   height: calc(100vh - 10vh);
   overflow-y: auto;
-  section {
+  section:not(:nth-child(5)) {
     padding: 10px;
     text-decoration: none;
-    a {
-      display: block;
-      text-align: center;
-      color: black;
-      text-decoration: none;
-    }
   }
 }
 </style>

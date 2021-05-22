@@ -46,7 +46,7 @@ export default {
 };
 </script>
 
-<style lang="scss">
+<style lang="scss" scoped>
 .life {
   width: 100%;
   height: calc(100vh - 10vh);

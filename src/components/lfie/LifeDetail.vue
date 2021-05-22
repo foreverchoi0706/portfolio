@@ -23,6 +23,9 @@ export default {
   position: fixed;
   z-index: 999;
   animation: appear 0.3s linear forwards;
+  button {
+    margin: 0 5px;
+  }
 }
 
 @keyframes appear {
